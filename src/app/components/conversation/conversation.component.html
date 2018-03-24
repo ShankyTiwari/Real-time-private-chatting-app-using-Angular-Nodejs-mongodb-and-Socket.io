@@ -1,0 +1,28 @@
+<div *ngIf='messageLoading' class="message-overlay">
+	<h3> {{selectedUser !== null && selectedUser.username ? 'Loading Messages' : ' Select a User to chat.' }}</h3>
+	<!-- <div class="alert alert-warning" *ngIf='chatListUsers.length === 0'>
+		Ask someone to come online.
+	</div> -->
+</div>
+<div class="massege-wrapper">
+	<div class="massege-container">
+		<div class="opposite-user" *ngIf="selectedUser !== null && selectedUser.username">
+			Chatting with {{selectedUser.username}}
+		</div>
+
+		<ul class="message-thread">
+			<li *ngFor="let message of messages" [class.align-right]="alignMessage(message.toUserId)">
+				{{ message.message}}
+			</li>
+		</ul>
+	</div>
+	<div class="message-typer">
+		<form [formGroup]="messageForm" novalidate>
+			<textarea class="message form-control" 
+				placeholder="Type and hit Enter" 
+				(keyup)="sendMessage($event)" 
+				formControlName="message">
+			</textarea>
+		</form>
+	</div>
+</div>
