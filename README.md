@@ -1,6 +1,16 @@
-# PrivateChatAppV4
+# Real-time-private-chatting-app-using-Angular-Nodejs-mongodb-and-Socket.io
+As the title propunds, This app is private chat application, In which front-end is built-in Angular. 
+This is SPA application, which uses ng-bootstrap. Server-side is written in Nodejs (version 8.9.3) and MongoDB(version v3.4.2).
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.0.
+
+## Explanation and Blog Post
+I have written a complete article on this application in three parts, for more details and Code explanation.
+
+1. [Blog Post Part 1](http://www.codershood.info/2017/02/09/real-time-private-chatting-app-using-angular-2-nodejs-mongodb-socket-io-part-1/)  =>  Covers the prerequisites, server configuration setup and REST API along with socket.io integration on the server.
+2. [Blog Post Part 2](http://www.codershood.info/2017/02/10/real-time-private-chatting-app-using-angular-2-nodejs-mongodb-socket-io-part-2/)  => This part covers the configuration our angular application and application Routing and implementation our application’s services.
+3. [Blog Post Part 3](http://www.codershood.info/2017/02/18/real-time-private-chatting-app-using-angular-2-nodejs-mongodb-socket-io-part-3-2/)  => Implementation of Login and Registration functionality.
+3. [Blog Post Part 4](http://www.codershood.info/2017/03/05/real-time-private-chatting-app-using-angular-2-nodejs-mongodb-socket-io-part-4/)  =>  Building homepage of the application where the user actually can chat with each other.
 
 ## Development server
 
@@ -13,15 +23,3 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
