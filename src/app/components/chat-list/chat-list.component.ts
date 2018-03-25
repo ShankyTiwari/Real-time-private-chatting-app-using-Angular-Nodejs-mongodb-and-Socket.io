@@ -46,11 +46,9 @@ export class ChatListComponent {
 				}
 				/* Adding new online user into chat list array */
 				this.chatListUsers = this.chatListUsers.concat(socketIOResponse.chatList);
-
 			} else if (socketIOResponse.userDisconnected) {
-				const loggedOutUser = this.chatListUsers.findIndex((obj: SelectedUser) => {
-					return obj.socketId !== socketIOResponse.socketId;
-				});
+				const loggedOutUser = this.chatListUsers.findIndex((obj: SelectedUser) =>  obj.id === socketIOResponse.id );
+				this.chatListUsers[loggedOutUser].online = 'N';
 			} else {
 				/* Updating entire chatlist if user logs in. */
 				this.chatListUsers = socketIOResponse.chatList;

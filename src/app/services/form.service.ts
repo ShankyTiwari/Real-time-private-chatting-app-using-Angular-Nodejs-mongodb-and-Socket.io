@@ -11,21 +11,38 @@ export class FormService {
 
 	createLoginForm(): FormGroup {
 		return new FormGroup({
-			username: new UsernameValidation(),
-			password: new PasswordValidation()
+				username: new FormControl('', [
+					Validators.required,
+				],
+			),
+				password: new FormControl('', [
+					Validators.required,
+					Validators.minLength(5)
+				],
+			)
 		});
 	}
 
 	createRegistrationForm(): FormGroup {
 		return new FormGroup({
-			username: new UsernameValidation(),
-			password: new PasswordValidation()
+				username: new FormControl('', [
+					Validators.required,
+				],
+			),
+				password: new FormControl('', [
+					Validators.required,
+					Validators.minLength(5)
+				],
+			)
 		});
 	}
 
 	createMessageForm(): FormGroup {
 		return new FormGroup({
-			message: new MessageValidation()
+				message: new FormControl('', [
+					Validators.required,
+				],
+			)
 		});
 	}
 }

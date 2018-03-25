@@ -4,6 +4,7 @@
 		(click)="selectedUser(user)" 
 		[class.active]="isUserSelected(user.id)">
 			{{ user.username}}
+			<span [ngClass]="user.online === 'Y' ? 'online' : 'offline'"> </span>
 	</li>
 </ul>
 <div class="alert alert-info" *ngIf='chatListUsers.length === 0'>

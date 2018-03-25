@@ -89,10 +89,8 @@ export class ChatService {
 				})
 				.pipe(
 					catchError(error => {
-						console.log(error);
-						alert('Something bad happened; please try again later.');
 						return new ErrorObservable(
-							'Something bad happened; please try again later.');
+							'Sorry, But this Service Unavailable for you.');
 					})
 				);
 		} else {

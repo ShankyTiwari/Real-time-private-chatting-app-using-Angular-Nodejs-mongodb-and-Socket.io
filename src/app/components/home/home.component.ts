@@ -59,9 +59,9 @@ export class HomeComponent implements OnInit {
 	}
 
 	logout() {
+		localStorage.removeItem('userid');
+		localStorage.removeItem('username');
 		this.socketService.logout({ userId: this.userId }).subscribe((response: Auth) => {
-			localStorage.removeItem('userid');
-			localStorage.removeItem('username');
 			this.router.navigate(['/']); /* Home page redirection */
 		});
 	}
