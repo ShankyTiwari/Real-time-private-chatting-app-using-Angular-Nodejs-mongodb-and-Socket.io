@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { UsernameValidation } from './../classes/username-validation';
 import { PasswordValidation } from './../classes/password-validation';
@@ -10,39 +10,22 @@ export class FormService {
 	constructor() {}
 
 	createLoginForm(): FormGroup {
-		return new FormGroup({
-				username: new FormControl('', [
-					Validators.required,
-				],
-			),
-				password: new FormControl('', [
-					Validators.required,
-					Validators.minLength(5)
-				],
-			)
+		return new FormBuilder().group({
+			username: new UsernameValidation(),
+			password: new PasswordValidation(),
 		});
 	}
 
 	createRegistrationForm(): FormGroup {
-		return new FormGroup({
-				username: new FormControl('', [
-					Validators.required,
-				],
-			),
-				password: new FormControl('', [
-					Validators.required,
-					Validators.minLength(5)
-				],
-			)
+		return new FormBuilder().group({
+			username: new UsernameValidation(),
+			password: new PasswordValidation(),
 		});
 	}
 
 	createMessageForm(): FormGroup {
-		return new FormGroup({
-				message: new FormControl('', [
-					Validators.required,
-				],
-			)
+		return new FormBuilder().group({
+			message: new MessageValidation
 		});
 	}
 }
