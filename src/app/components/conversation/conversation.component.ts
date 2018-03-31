@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 
 /* Importing services starts*/
 import { ChatService } from './../../services/chat.service';
@@ -16,9 +16,9 @@ import { SelectedUser} from './../../interfaces/selected-user';
 /* importing interfaces ends */
 
 @Component({
-  selector: 'app-conversation',
-  templateUrl: './conversation.component.html',
-  styleUrls: ['./conversation.component.css']
+	selector: 'app-conversation',
+	templateUrl: './conversation.component.html',
+	styleUrls: ['./conversation.component.css']
 })
 export class ConversationComponent implements OnChanges {
 
@@ -76,8 +76,7 @@ export class ConversationComponent implements OnChanges {
 				this.socketService.sendMessage({
 					fromUserId: this.userId,
 					message: (message).trim(),
-					toUserId: this.selectedUser.id,
-					toSocketId: this.selectedUser.socketId,
+					toUserId: this.selectedUser.id
 				});
 				this.messageForm.reset();
 				setTimeout(() => {
@@ -102,6 +101,4 @@ export class ConversationComponent implements OnChanges {
 			this.messages = data.messages;
 		});
 	}
-
-
 }

@@ -44,6 +44,18 @@ export class ChatService {
 		});
 	}
 
+	removeLS(): Promise<boolean> {
+		return new Promise((resolve, reject) => {
+			try {
+				localStorage.removeItem('userid');
+				localStorage.removeItem('username');
+				resolve(true);
+			} catch (error) {
+				reject(error);
+			}
+		});
+	}
+
 	usernameAvailable(params: String): Observable<UsernameAvailable> {
 		return this.http.post(`${this.BASE_URL}usernameAvailable`, JSON.stringify({username : params}), this.httpOptions).pipe(
 			catchError(error => {
@@ -55,22 +67,24 @@ export class ChatService {
 	}
 
 	login(params: AuthRequest): Observable<Auth> {
-		return this.http.post(`${this.BASE_URL}login`, JSON.stringify(params), this.httpOptions).pipe(
-			catchError(error => {
-				alert('Invalid login credentials.');
-				return new ErrorObservable(
-					'Something bad happened; please try again later.');
-			})
+		return this.http.post(`${this.BASE_URL}login`, JSON.stringify(params), this.httpOptions).map(
+			(response: Auth) => {
+				return response;
+			},
+			(error) => {
+				throw error;
+			}
 		);
 	}
 
 	register(params: AuthRequest): Observable<Auth> {
-		return this.http.post(`${this.BASE_URL}register`, JSON.stringify(params), this.httpOptions).pipe(
-			catchError(error => {
-				alert('Something bad happened; please try again later.');
-				return new ErrorObservable(
-					'Something bad happened; please try again later.');
-			})
+		return this.http.post(`${this.BASE_URL}register`, JSON.stringify(params), this.httpOptions).map(
+			(response: Auth) => {
+				return response;
+			},
+			(error) => {
+				throw error;
+			}
 		);
 	}
 
@@ -80,7 +94,6 @@ export class ChatService {
 			return this.http.post(`${this.BASE_URL}userSessionCheck`, JSON.stringify({ userId: userId }), this.httpOptions)
 				.map((response: UserSessionCheck) => {
 					if (response.error) {
-						console.log(response);
 						this.router.navigate(['/']);
 						return false;
 					}
@@ -94,6 +107,7 @@ export class ChatService {
 					})
 				);
 		} else {
+			this.router.navigate(['/']);
 			return new Observable(observer => {
 				observer.next(false);
 			});

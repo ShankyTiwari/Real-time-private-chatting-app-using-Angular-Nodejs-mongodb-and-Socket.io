@@ -12,6 +12,7 @@ import { FormService } from './../../services/form.service';
 
 /* Importing inrerface starts*/
 import { UsernameAvailable } from './../../interfaces/username-available';
+import { Auth } from './../../interfaces/auth';
 /* Importing inrerface starts*/
 
 @Component({
@@ -51,20 +52,36 @@ export class AuthComponent implements OnInit {
 	login(): void {
 		if (this.loginForm.valid) {
 			this.overlayDisplay = false;
-			this.chatService.login(this.loginForm.value).subscribe(response => {
-				localStorage.setItem('userid', response.userId);
-				this.router.navigate(['/home']);
-			});
+			this.chatService.login(this.loginForm.value).subscribe(
+				(response: Auth) => {
+					localStorage.setItem('userid', response.userId);
+					this.router.navigate(['/home']);
+				},
+				(error) => {
+					this.overlayDisplay = true;
+					/* Uncomment it, Incase if you like to reset the Login Form. */
+					// this.loginForm.reset();
+					alert('Inavalid Login Credentials, try again.');
+				}
+			);
 		}
 	}
 
 	register(): void {
 		if (this.registrationForm.valid) {
 			this.overlayDisplay = false;
-			this.chatService.register(this.registrationForm.value).subscribe(response => {
-				localStorage.setItem('userid', response.userId);
-				this.router.navigate(['/home']);
-			});
+			this.chatService.register(this.registrationForm.value).subscribe(
+				(response: Auth) => {
+					localStorage.setItem('userid', response.userId);
+					this.router.navigate(['/home']);
+				},
+				(error) => {
+					this.overlayDisplay = true;
+					/* Uncomment it, Incase if you like to reset the Login Form. */
+					// this.registrationForm.reset();
+					alert('Something bad happened; please try again later.');
+				}
+		);
 		}
 	}
 

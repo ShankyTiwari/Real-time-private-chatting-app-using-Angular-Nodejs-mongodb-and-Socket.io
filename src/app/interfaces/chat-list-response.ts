@@ -5,5 +5,5 @@ export interface ChatListResponse {
 	error: boolean;
 	singleUser: boolean;
 	userDisconnected: boolean;
-	id: string;
+	userid: string;
 }

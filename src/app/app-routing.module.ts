@@ -1,3 +1,8 @@
+/*
+* Real time private chatting app using Angular 2, Nodejs, mongodb and Socket.io
+* @author Shashank Tiwari
+*/
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {

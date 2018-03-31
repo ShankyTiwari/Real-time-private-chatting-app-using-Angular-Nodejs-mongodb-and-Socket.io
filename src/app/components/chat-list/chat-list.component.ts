@@ -47,15 +47,24 @@ export class ChatListComponent {
 				/* Adding new online user into chat list array */
 				this.chatListUsers = this.chatListUsers.concat(socketIOResponse.chatList);
 			} else if (socketIOResponse.userDisconnected) {
-				const loggedOutUser = this.chatListUsers.findIndex((obj: SelectedUser) =>  obj.id === socketIOResponse.id );
-				this.chatListUsers[loggedOutUser].online = 'N';
+				const loggedOutUser = this.chatListUsers.findIndex((obj: SelectedUser) => obj.id === socketIOResponse.userid );
+				if (loggedOutUser >= 0) {
+					this.chatListUsers[loggedOutUser].online = 'N';
+				}
 			} else {
 				/* Updating entire chatlist if user logs in. */
 				this.chatListUsers = socketIOResponse.chatList;
 			}
 		} else {
 			alert(`Unable to load Chat list, Redirecting to Login.`);
-			this.router.navigate(['/']);
+			this.chatService.removeLS()
+			.then( (removedLs: boolean) => {
+				this.router.navigate(['/']);
+			})
+			.catch((error: Error) => {
+				alert(' This App is Broken, we are working on it. try after some time.');
+				throw error;
+			});
 		}
 	}
 
