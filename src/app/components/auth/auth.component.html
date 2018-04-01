@@ -1,1 +1,125 @@
-Auth works !
+<!-- 
+	Real time private chatting app using Angular 2, Nodejs, mongodb and Socket.io
+	@author Shashank Tiwari
+ -->
+
+<!-- Loading overlay section starts -->
+<div [class.overlay-display]="overlayDisplay" class="overlay">
+	<h1>Loading</h1>
+</div>
+<!-- Loading overlay section starts -->
+
+<div class="container">
+
+	<p class="app-heading">
+		<span>Realtime private Chatting application Version 3 </span>
+		<span class="app-heading-tech">using Angular 2 and Nodejs</span>
+	</p>
+
+	<div class="row login-screen">
+		<div class="offset-md-3 col-md-5 justifier">
+
+			<ngb-tabset [justify]='setTabPosition'>
+
+				<ngb-tab title="Login">
+					<ng-template ngbTabContent>
+						<div class="justifier">
+							<form (ngSubmit)="login()" [formGroup]="loginForm" novalidate> 
+								
+								<div class="form-group">
+									<label>Username</label>
+									<input type="text" 
+										name="username" 
+										class="form-control" 
+										placeholder="Enter your Username"
+										formControlName='username'>
+										<div class="feedback" 
+											*ngIf="!loginForm.controls['username'].valid && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)">
+											<span *ngIf="loginForm.controls['username'].errors.required">
+												Username is required
+											</span>
+										</div>
+								</div>
+							
+								<div class="form-group">
+									<label>Password</label>
+									<input type="password" 
+										name="password" 
+										class="form-control" 
+										placeholder="Enter your Password"
+										formControlName='password'
+									>
+									<div class="feedback" 
+									 	*ngIf="!loginForm.controls['password'].valid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+										<span *ngIf="loginForm.controls['password'].errors.required">
+											Password is required
+										</span>
+									</div>
+								</div>
+							
+								<div class="form-group">
+									<button type='submit' class="btn btn-primary" [disabled]="!loginForm.valid">Login</button>
+								</div>
+							</form>
+						</div>
+					</ng-template>
+				</ngb-tab>
+
+				<ngb-tab title="Registration">
+					<ng-template ngbTabContent>
+						<div class="justifier">
+							<form  (ngSubmit)="register()" [formGroup]="registrationForm" novalidate>
+								<div class="form-group">
+									<label>Name</label>
+									<input type="text" 
+										name="username" 
+										class="form-control" 
+										placeholder="Enter your Username"
+										formControlName="username"
+										>
+									<div class="feedback" 
+										*ngIf="!registrationForm.controls['username'].valid && (registrationForm.controls['username'].dirty || registrationForm.controls['username'].touched)">
+										<span *ngIf="registrationForm.controls['username'].errors.required">
+											Username is required
+										</span>
+									</div>
+									<div class="feedback" 
+										*ngIf="isuserNameAvailable && (registrationForm.controls['username'].dirty || registrationForm.controls['username'].touched)">
+										username
+										<strong>{{registrationForm.controls['username'].value}}</strong> is already taken.
+									</div>
+								</div>
+							
+								<div class="form-group">
+									<label>Password</label>
+									<input type="password" 
+										name="password" 
+										class="form-control" 
+										placeholder="Enter your Password" 
+										formControlName="password"
+									>
+									<div class="feedback" 
+										*ngIf="!registrationForm.controls['password'].valid && (registrationForm.controls['password'].dirty || registrationForm.controls['password'].touched)">
+										<span *ngIf="registrationForm.controls['password'].errors.required">
+											Password is required
+										</span>
+										<span *ngIf="registrationForm.controls['password'].errors.minlength">
+											Password must be 8 characters long, we need another {{registrationForm.controls['password'].errors.minlength.requiredLength - registrationForm.controls['password'].errors.minlength.actualLength}}
+											characters
+										</span>
+									</div>
+								</div>
+							
+								<div class="form-group">
+									<button class="btn btn-primary" [disabled]="!registrationForm.valid">Registration</button>
+								</div>
+							</form>						
+						</div>
+					</ng-template>
+				</ngb-tab>
+				
+			</ngb-tabset>
+
+		</div>
+	</div>
+</div>

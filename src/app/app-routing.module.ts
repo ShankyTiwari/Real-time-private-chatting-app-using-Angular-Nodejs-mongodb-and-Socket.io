@@ -15,7 +15,7 @@ const routes: Routes = [{
 	}, {
 		path: 'home',
 		loadChildren: 'app/components/home/home.module#HomeModule',
-		// canActivate: [AuthGuard]
+		canActivate: [AuthGuard]
 	}, {
 		path: '',
 		redirectTo: 'auth',

@@ -1,1 +1,12 @@
-ChatList Works!
+<ul class="list-group">
+	<li class="list-group-item"
+		*ngFor="let user of chatListUsers" 
+		(click)="selectedUser(user)" 
+		[class.active]="isUserSelected(user.id)">
+			{{ user.username}}
+			<span [ngClass]="user.online === 'Y' ? 'online' : 'offline'"> </span>
+	</li>
+</ul>
+<div class="alert alert-info" *ngIf='chatListUsers.length === 0'>
+  No User Found.
+</div>
