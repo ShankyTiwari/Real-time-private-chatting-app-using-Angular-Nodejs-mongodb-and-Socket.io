@@ -21,7 +21,7 @@ import { MessagesResponse } from './../../interfaces/messages-response';
 export class ChatListComponent {
 
 	private userId: string = null;
-	private chatListUsers: SelectedUser[] = [];
+	public chatListUsers: SelectedUser[] = [];
 	private selectedUserId: string = null;
 
 	/* Incoming data from other component starts */

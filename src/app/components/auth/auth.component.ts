@@ -23,8 +23,8 @@ import { Auth } from './../../interfaces/auth';
 
 export class AuthComponent implements OnInit {
 
-	private setTabPosition = 'center';
-	private overlayDisplay = false;
+	public setTabPosition = 'center';
+	public overlayDisplay = false;
 	private isuserNameAvailable = false;
 
 	private loginForm: FormGroup;

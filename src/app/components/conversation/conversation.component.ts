@@ -22,12 +22,12 @@ import { SelectedUser} from './../../interfaces/selected-user';
 })
 export class ConversationComponent implements OnChanges {
 
-	private messageForm: FormGroup;
+	public messageForm: FormGroup;
 
 	private userId: string = null;
-	private messages: Messages[] = [];
-	private selectedUser: SelectedUser = null;
-	private messageLoading = true;
+	public messages: Messages[] = [];
+	public selectedUser: SelectedUser = null;
+	public messageLoading = true;
 
 	/* Incoming data from other component starts */
 	@Input() conversation: string;

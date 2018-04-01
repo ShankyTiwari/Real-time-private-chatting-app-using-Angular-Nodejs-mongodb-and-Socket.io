@@ -24,11 +24,11 @@ import { ChatListResponse } from './../../interfaces/chat-list-response';
 export class HomeComponent implements OnInit {
 
 	private userId: string = null;
-	private username: string = null;
-	private overlayDisplay = true;
+	public username: string = null;
+	public overlayDisplay = true;
 
-	private conversation = 'CONVERSATION';
-	private selectedUserInfo = 'SELECTEDUSERINFO';
+	public conversation = 'CONVERSATION';
+	public selectedUserInfo = 'SELECTEDUSERINFO';
 
 	@ViewChild(ChatListComponent) chatListComponent: ChatListComponent;
 	@ViewChild(ConversationComponent) conversationComponent: ConversationComponent;
