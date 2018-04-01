@@ -1,17 +1,11 @@
-<!-- Loading overlay section starts -->
-<div [class.overlay-display]="!overlayDisplay" class="overlay">
-	<h1>Loading</h1>
-</div>
-<!-- Loading overlay section starts -->
-
 <!-- header section starts -->
 <header class="app-header">
 	<nav class="navbar navbar-expand-md">
-		<a class="navbar-brand" href="#">Hello {{username}}</a>
+		<a class="navbar-brand" href="#">Hello username</a>
 	</nav>
 	<ul class="nav justify-content-end">
 		<li class="nav-item">
-			<a class="nav-link active" href="#" (click)="logout()">Logout</a>
+			<a class="nav-link active" href="#">Logout</a>
 		</li>
 	</ul>
 </header>
@@ -20,10 +14,10 @@
 <main role="main" class="container-fluid">
 	<div class="row">
 		<div class="col-3">
-			<app-chat-list [conversation]="conversation" [selectedUserInfo]="selectedUserInfo"></app-chat-list>
+			<app-chat-list></app-chat-list>
 		</div>
 		<div class="col-8">
-			<app-conversation [conversation]="conversation" [selectedUserInfo]="selectedUserInfo"></app-conversation>
+			<app-conversation></app-conversation>
 		</div>
 	</div>
 </main>
