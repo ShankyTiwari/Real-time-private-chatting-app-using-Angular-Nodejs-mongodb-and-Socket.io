@@ -23,7 +23,7 @@ import { ChatListResponse } from './../../interfaces/chat-list-response';
 })
 export class HomeComponent implements OnInit {
 
-	private userId: string = null;
+	public userId: string = null;
 	public username: string = null;
 	public overlayDisplay = true;
 

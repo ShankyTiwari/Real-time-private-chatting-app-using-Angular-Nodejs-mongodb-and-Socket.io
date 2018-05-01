@@ -100,12 +100,12 @@ export class ChatService {
 					localStorage.setItem('username', response.username);
 					return true;
 				})
-				.pipe(
-					catchError(error => {
-						return new ErrorObservable(
-							'Sorry, But this Service Unavailable for you.');
-					})
-				);
+				.pipe( () => {
+					console.error(`Sorry, But you are not logged in.`);
+					return new Observable(observer => {
+						observer.next(false);
+					});
+				});
 		} else {
 			this.router.navigate(['/']);
 			return new Observable(observer => {

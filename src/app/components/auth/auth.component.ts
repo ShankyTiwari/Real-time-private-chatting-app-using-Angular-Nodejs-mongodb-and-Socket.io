@@ -25,7 +25,7 @@ export class AuthComponent implements OnInit {
 
 	public setTabPosition = 'center';
 	public overlayDisplay = false;
-	private isuserNameAvailable = false;
+	public isuserNameAvailable = false;
 
 	private loginForm: FormGroup;
 	private registrationForm: FormGroup;
@@ -40,13 +40,15 @@ export class AuthComponent implements OnInit {
 	 }
 
 	ngOnInit() {
-		if (this.chatService.userSessionCheck()) {
-			this.overlayDisplay = true;
-			this.router.navigate(['/home']);
-		} else {
-			this.overlayDisplay = false;
-			this.getUsernameSuggestion();
-		}
+		this.chatService.userSessionCheck().subscribe( (loggedIn: boolean) => {
+			if (loggedIn) {
+				this.overlayDisplay = true;
+				this.router.navigate(['/home']);
+			} else {
+				this.overlayDisplay = true;
+				this.getUsernameSuggestion();
+			}
+		});
 	}
 
 	login(): void {

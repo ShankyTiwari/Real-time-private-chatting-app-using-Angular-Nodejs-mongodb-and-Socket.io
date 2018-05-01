@@ -12,8 +12,8 @@
 <div class="container">
 
 	<p class="app-heading">
-		<span>Realtime private Chatting application Version 3 </span>
-		<span class="app-heading-tech">using Angular 2 and Nodejs</span>
+		<span>Realtime private Chatting application Version 4 </span>
+		<span class="app-heading-tech">using Angular and Nodejs</span>
 	</p>
 
 	<div class="row login-screen">
@@ -32,7 +32,8 @@
 										name="username" 
 										class="form-control" 
 										placeholder="Enter your Username"
-										formControlName='username'>
+										formControlName='username'
+										autocomplete="off">
 										<div class="feedback" 
 											*ngIf="!loginForm.controls['username'].valid && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)">
 											<span *ngIf="loginForm.controls['username'].errors.required">
@@ -76,6 +77,7 @@
 										class="form-control" 
 										placeholder="Enter your Username"
 										formControlName="username"
+										autocomplete="off"
 										>
 									<div class="feedback" 
 										*ngIf="!registrationForm.controls['username'].valid && (registrationForm.controls['username'].dirty || registrationForm.controls['username'].touched)">
