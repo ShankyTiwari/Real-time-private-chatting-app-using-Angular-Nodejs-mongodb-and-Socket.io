@@ -90,28 +90,25 @@ export class ChatService {
 
 	userSessionCheck(): Observable<boolean> {
 		const userId = localStorage.getItem('userid');
-		if (userId !== null && userId !== undefined) {
-			return this.http.post(`${this.BASE_URL}userSessionCheck`, JSON.stringify({ userId: userId }), this.httpOptions)
-				.map((response: UserSessionCheck) => {
-					if (response.error) {
-						this.router.navigate(['/']);
-						return false;
-					}
-					localStorage.setItem('username', response.username);
-					return true;
-				})
-				.pipe( () => {
-					console.error(`Sorry, But you are not logged in.`);
-					return new Observable(observer => {
+		return new Observable(observer => {
+			if (userId !== null && userId !== undefined) {
+				this.http.post(`${this.BASE_URL}userSessionCheck`, JSON.stringify({ userId: userId }), this.httpOptions)
+					.subscribe((response: UserSessionCheck) => {
+						if (response.error) {
+							this.router.navigate(['/']);
+							return false;
+						}
+						localStorage.setItem('username', response.username);
+						observer.next(true);
+					}, (error) => {
 						observer.next(false);
 					});
-				});
-		} else {
-			this.router.navigate(['/']);
-			return new Observable(observer => {
+			} else {
+				this.router.navigate(['/']);
 				observer.next(false);
-			});
-		}
+			}
+		});
+
 	}
 
 	getMessages(params: MessageRequest): Observable<MessagesResponse> {
