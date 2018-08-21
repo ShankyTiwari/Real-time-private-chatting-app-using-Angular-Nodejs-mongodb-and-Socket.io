@@ -1,8 +1,7 @@
 # Real time private chatting app using Angular Nodejs mongodb and Socket.io
-As the title propunds, This app is private chat application, In which front-end is built-in Angular. 
-This is SPA application, which uses ng-bootstrap. Server-side is written in Nodejs (version 8.9.3) and MongoDB(version v3.4.2).
+As the title reads, This app is private chat application built using Angular (version 6.1.3). This is SPA application, which uses ng-bootstrap. Server-side is written in Nodejs (version 8.9.4) and MongoDB(version 3.6.3).
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
 ## Explanation and Blog Post
 I have written a complete article on this application in three parts, for more details and Code explanation.
