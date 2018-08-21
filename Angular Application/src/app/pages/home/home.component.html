@@ -1,0 +1,29 @@
+<!-- Loading overlay section starts -->
+<div *ngIf="overlayDisplay" class="overlay">
+	<h1>Loading</h1>
+</div>
+<!-- Loading overlay section starts -->
+
+<!-- header section starts -->
+<header class="app-header">
+	<nav class="navbar navbar-expand-md">
+		<a class="navbar-brand" href="#">Hello {{username}}</a>
+	</nav>
+	<ul class="nav justify-content-end">
+		<li class="nav-item">
+			<a class="nav-link active" href="#" (click)="logout()">Logout</a>
+		</li>
+	</ul>
+</header>
+<!-- header section ends -->
+
+<main role="main" class="container content"  *ngIf="!overlayDisplay">
+	<div class="row chat-content">
+		<div class="col-3 chat-list-container">
+			<app-chat-list></app-chat-list>
+		</div>
+		<div class="col-8 message-container">
+			<app-conversation></app-conversation>
+		</div>
+	</div>
+</main>

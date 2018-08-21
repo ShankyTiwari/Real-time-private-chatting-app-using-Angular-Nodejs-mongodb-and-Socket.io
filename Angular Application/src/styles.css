@@ -1,0 +1,65 @@
+/* You can add global styles to this file, and also import other style files */
+
+a {
+	color: #000 !important;
+}
+
+.justifier {
+	padding: 20px;
+}
+
+.app-heading {
+	text-align: center;
+	font-size: 32px;
+	margin-top: 30px;
+}
+
+.app-heading-tech {
+	font-size: 13px;
+}
+
+.app-author {
+	text-align: center;
+	font-size: 20px;
+}
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	margin-bottom: 60px;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	line-height: 60px;
+	background-color: #f5f5f5;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+
+/* Not required for template or sticky footer method. */
+.container {
+	width: auto;
+	max-width: 680px;
+	padding: 0 15px;
+}
+
+.overlay {
+	height: 100% !important;
+	width: 100% !important;
+	background-color: rgba(255, 255, 255, 0.82);
+	position: absolute;
+	z-index: 2;
+	text-align: center;
+	padding-top: 200px;
+}
