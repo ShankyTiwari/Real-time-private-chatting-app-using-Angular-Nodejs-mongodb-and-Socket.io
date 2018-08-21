@@ -1,6 +1,6 @@
 # NodeJS API for private chatting app built using Angular
 
-This is NodeJS API for private chatting app built using Angular. The API is built using Nodejs (version 8.9.3) and MongoDB(version v3.4.2).
+This is NodeJS API for private chatting app built using Angular. The API is built using Nodejs (version 8.9.4) and MongoDB(version 3.6.3).
 
 
 ## Installation 
