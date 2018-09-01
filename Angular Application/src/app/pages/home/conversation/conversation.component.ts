@@ -85,10 +85,10 @@ export class ConversationComponent implements OnInit {
 		}
 	}
 
-	async sendAndUpdateMessages(message: Message) {
+	sendAndUpdateMessages(message: Message) {
 		try {
 			this.messageForm.disable();
-			await this.socketService.sendMessage(message);
+			this.socketService.sendMessage(message);
 			this.messages = [...this.messages, message];
 			this.messageForm.reset();
 			this.messageForm.enable();

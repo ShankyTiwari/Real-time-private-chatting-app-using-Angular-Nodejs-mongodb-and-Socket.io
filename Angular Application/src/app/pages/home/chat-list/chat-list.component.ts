@@ -16,7 +16,7 @@ import { ChatListResponse } from './../../../interfaces/chat-list-response';
 	styleUrls: ['./chat-list.component.css']
 })
 export class ChatListComponent implements OnInit {
-	private loading = true;
+	loading = true;
 	userId: string = null;
 	selectedUserId: string = null;
 	chatListUsers: User[] = [];

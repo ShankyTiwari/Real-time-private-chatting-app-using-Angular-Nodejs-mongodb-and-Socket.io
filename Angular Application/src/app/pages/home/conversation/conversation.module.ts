@@ -6,13 +6,13 @@ import { FormSupportModule } from './../../../modules/form-support/form-support.
 import { ConversationComponent } from './conversation.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormSupportModule
-  ],
-  declarations: [ConversationComponent],
-  exports: [
-    ConversationComponent
-  ]
+	imports: [
+		CommonModule,
+		FormSupportModule
+	],
+	declarations: [ConversationComponent],
+	exports: [
+		ConversationComponent
+	]
 })
 export class ConversationModule { }

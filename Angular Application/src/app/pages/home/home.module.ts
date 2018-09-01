@@ -1,8 +1,12 @@
+/*
+* Real time private chatting app using Angular 2, Nodejs, mongodb and Socket.io
+* @author Shashank Tiwari
+*/
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { UISupportModule } from './../../modules/ui-support/ui-support.module';
-import { FormSupportModule } from './../../modules/form-support/form-support.module';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
@@ -14,7 +18,6 @@ import { ChatListModule } from './chat-list/chat-list.module';
 		CommonModule,
 		HomeRoutingModule,
 		UISupportModule,
-		FormSupportModule,
 		ConversationModule,
 		ChatListModule
 	],
