@@ -8,7 +8,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Code for Angular application is in [Angular folder](https://github.com/ShankyTiwari/Real-time-private-chatting-app-using-Angular-Nodejs-mongodb-and-Socket.io/tree/master/Angular%20Application).
 
 ## Nodejs API Code
-Code for Angular application is in [Nodejs API folder](https://github.com/ShankyTiwari/Real-time-private-chatting-app-using-Angular-Nodejs-mongodb-and-Socket.io/tree/master/Nodejs%20API).
+Code for Nodejs application is in [Nodejs API folder](https://github.com/ShankyTiwari/Real-time-private-chatting-app-using-Angular-Nodejs-mongodb-and-Socket.io/tree/master/Nodejs%20API).
 
 
 ## Explanation and Blog Post
